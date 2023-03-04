@@ -1,0 +1,225 @@
+{% extends "GRsystem/index.html" %}
+.container-fluid
+{
+    width="500px";
+}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<html><head>
+    <title>Home</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style type="text/css">
+html 
+                        {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+                            overflow-x: hidden; 
+                            
+          }
+                        .push {
+height: 50px;
+}
+
+.jumbotron
+{
+    background-color: white;
+}
+
+.page-footer 
+{
+    background-color: #00D1FB;
+    bottom: 700px;
+    top: 250px;
+    position: relative;
+}
+.form-signin {
+max-width: 330px;
+padding: 15px;
+margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+margin-bottom: 10px;
+}
+.form-signin .checkbox {
+font-weight: normal;
+}
+.form-signin .form-control {
+position: relative;
+height: auto;
+-webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+      box-sizing: border-box;
+padding: 10px;
+font-size: 16px;
+}
+.form-signin .form-control:focus {
+z-index: 2;
+}
+.form-signin input[type="email"] {
+margin-bottom: -1px;
+border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+margin-bottom: 10px;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+</style>
+</head>
+
+    <body><nav class="navbar navbar-expand-xl navbar-dark bg-dark shadow-lg">
+            <a class="navbar-brand" href="">Query Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/aboutus/">About</a>
+                </li>
+                
+            
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <ul class="nav navbar-nav navbar-right">
+                
+                        <li class="nav-item">
+                        <a class="nav-link" href="/register/"><span class="fi-account-login"></span>Register</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/login/">Login</a>
+                      </li>
+                     
+                  </ul>
+              </form>
+            </div>
+          </nav>
+          
+
+<div class="container width:50%">
+<div class="content-section">
+<br>
+
+    <form method="POST">
+        
+        
+        
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Register Here!!!</legend>
+            <input type="hidden" name="csrfmiddlewaretoken" value="BCsQ0q8kG53Keu9KbEUf9QxgGgFaR2C6eLIII1qN8QnvNuANykbSrZvswcYZ4tjv">
+            
+
+<div id="div_id_username" class="form-group"> <label for="id_username" class=" requiredField">
+            Username<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="username" maxlength="150" autofocus="" class="textinput textInput form-control" required="" id="id_username"> <small id="hint_id_username" class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small> </div> </div> 
+            
+
+            <div id="div_id_ward_name" class="form-group"> <label for="id_ward_name" class=" requiredField">
+                    Ward name<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="ward_name" maxlength="30" class="textinput textInput form-control" required="" id="id_ward_name"> </div> </div>    
+
+
+
+            <div id="div_id_first_name" class="form-group"> <label for="id_first_name" class=" requiredField">        
+            First name<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="first_name" maxlength="30" class="textinput textInput form-control" required="" id="id_first_name"> </div> </div> 
+            <div id="div_id_last_name" class="form-group"> <label for="id_last_name" class=" requiredField">
+            Last name<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="last_name" maxlength="30" class="textinput textInput form-control" required="" id="id_last_name"> </div> </div> <div id="div_id_email" class="form-group"> <label for="id_email" class="">
+            Email address
+        </label> <div class=""> <input type="email" name="email" maxlength="254" class="emailinput form-control" id="id_email"> </div> </div> <div id="div_id_password1" class="form-group"> <label for="id_password1" class=" requiredField">
+            Password<span class="asteriskField">*</span> </label> <div class=""> <input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password1"> <small id="hint_id_password1" class="form-text text-muted"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></small> </div> </div> <div id="div_id_password2" class="form-group"> <label for="id_password2" class=" requiredField">
+            Password confirmation<span class="asteriskField">*</span> </label> <div class=""> <input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password2"> <small id="hint_id_password2" class="form-text text-muted">Enter the same password as before, for verification.</small> </div> </div>
+
+            
+
+<div id="div_id_collegename" class="form-group"> <label for="id_collegename" class=" requiredField">
+            Collegename<span class="asteriskField">*</span> </label> <div class=""> <select name="collegename" class="select form-control" required="" id="id_collegename"> <option value="" selected="">---------</option> <option value="College1">College1</option> <option value="College2">College2</option>
+
+</select> </div> </div> <div id="div_id_contactnumber" class="form-group"> <label for="id_contactnumber" class="">
+            Contactnumber
+        </label> <div class=""> <input type="text" name="contactnumber" maxlength="10" class="textinput textInput form-control" id="id_contactnumber"> </div> </div> <div id="div_id_Branch" class="form-group"> <label for="id_Branch" class=" requiredField">
+            Branch<span class="asteriskField">*</span> </label> <div class=""> <select name="Branch" class="select form-control" id="id_Branch"> <option value="ComputerScience" selected="">ComputerScience</option> <option value="InformationScience">InformationScience</option> <option value="Electronics and Communication">Electronics and Communication</option> <option value="Mechanical">Mechanical</option>
+
+</select> </div> </div>
+
+          
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="/login/">Sign In</a>
+        </small>
+    </div>
+</div>
+</div>
+
+
+<!--<div class="push"></div>
+<footer class="fixed-bottom bg-dark text-light" style="height:50px;">
+<center>Copyright &copy; GRsystem.com All rights Reserved.</center>
+
+</footer>
+
+
+
+</html>--><div id="volume-booster-visusalizer">
+                <div class="sound">
+                    <div class="sound-icon"></div>
+                    <div class="sound-wave sound-wave_one"></div>
+                    <div class="sound-wave sound-wave_two"></div>
+                    <div class="sound-wave sound-wave_three"></div>
+                </div>
+                <div class="segments-box">
+                    <div data-range="1-20" class="segment"><span></span></div>
+                    <div data-range="21-40" class="segment"><span></span></div>
+                    <div data-range="41-60" class="segment"><span></span></div>
+                    <div data-range="61-80" class="segment"><span></span></div>
+                    <div data-range="81-100" class="segment"><span></span></div>
+                </div>
+            </div></body></html>
+
+
+<div class="container width:50%">
+    <div class="content-section">
+    <br>
+    
+    
+        <form method="POST">
+            
+
+            
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Register Here!!!</legend>
+                {% csrf_token %}
+                {{ form|crispy }}
+                {{profile_form|crispy}}
+
+               
+              
+            </fieldset>
+
+
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
+        
+    </div>
+    </div>
+{% endblock content %}

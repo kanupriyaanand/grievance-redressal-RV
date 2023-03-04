@@ -1,0 +1,217 @@
+{% extends "GRsystem/index.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<style>
+
+</style>
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>All Complaints</title>
+   
+  <!-- Bootstrap core CSS -->
+  <link href= "{% static "GRsystem/extra/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static "GRsystem/css/simple-sidebar.css" %}" rel="stylesheet">
+
+</head>
+
+<body style="background: #8E2DE2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4A00E0, #4A00E0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+"
+>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"> GRSystem </div>
+      <div class="list-group list-group-flush">
+        {% if user.is_authenticated  %}
+			     <a href="" class="list-group-item list-group-item-action active"> Welcome : {{user.username}} </a>
+              <a href='/dashboard/' class="list-group-item list-group-item-action">Profile</a>
+              <a href='/password/' class="list-group-item list-group-item-action">Password Reset</a>
+
+              <a href="/complaints/" class="list-group-item list-group-item-action">Add Complaints</a>
+              <a href="/list/" class="list-group-item list-group-item-action">UnSolved Complaints</a>
+              <a href="/slist/" class="list-group-item list-group-item-action">Solved Complaints</a>
+
+              {% endif %}
+              
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+     
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">DashBoard</button>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+	
+ 	</nav>
+	  <br>
+	  <div class="col-12">
+		    <div class="card">
+		        <div class="card-body">
+		            <div class="row">
+		         
+		                <div class="col-md-12">
+		                    <h4 class="text-primary"><b>Add Complaints :</b></h4>
+													
+		                    <hr>
+												<div class="row m-1">
+											<div>
+
+
+						
+		                </div>
+		          </div>
+
+               
+
+    
+		            <div class="row">
+		                <div class="col-md-12" style="margin:10px">
+                      
+                      <form method="post">
+                        
+                        
+
+                        
+                        <input type="hidden" name="csrfmiddlewaretoken" value="0KR5a2ndq1guIl1mb66W2BJ3Ju6bT7L4tqBaLNMNRuCnaQtKKQ9oEn4Lmj3thRjx">
+                        {% csrf_token %}
+                        
+                        
+                        
+                            
+                        <div id="div_id_email" class="form-group">
+                          <label for="id_email" class="requiredField">
+                            Address complaint to
+                            <span class="asteriskField">*</span>
+                          </label>
+                          <div class>
+                            <select name="email" class="select form-control is-invalid" required id="id_email">
+                              <option value selected>---------</option>
+                              <option value="aryanpwani@gmail.com">Academics person</option>
+                              <option value="aryanwani.is20@rvce.edu.in">Prof.Sharadadevi K S </option>
+                              <option value="pugoppdodo@gmail.com">Technician</option>
+                              <option value="kanupriyaanand.is20@rvce.edu.in">Dean Student Affairs</option>
+                              <option value="kanupriya.a01@gmail.com">Counselor</option>
+                            </select>
+                            <p id="error_1_id_email" class="invalid-feedback">
+                              <strong>This field is required.</strong>
+                            </p>
+                          </div>
+                        </div>
+                    <div id="div_id_Subject" class="form-group"> <label for="id_Subject" class=" requiredField">
+                                    Subject<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="Subject" maxlength="200" class="textinput textInput form-control is-invalid" required="" id="id_Subject"> <p id="error_1_id_Subject" class="invalid-feedback"><strong>This field is required.</strong></p> </div> </div> <div id="div_id_Type_of_complaint" class="form-group"> <label for="id_Type_of_complaint" class=" requiredField">
+                                    Type of complaint<span class="asteriskField">*</span> </label> <div class=""> <select name="Type_of_complaint" class="select form-control is-invalid" required="" id="id_Type_of_complaint"> <option value="" selected="">---------</option> <option value="Academics">Academics</option> <option value="SAP">SAP</option> <option value="Infrastructure/Cleanliness">Infrastructure/Cleanliness</option> <option value="Social">Social</option> <option value="Others">Others</option>
+                                      
+                                      
+
+
+                                    </select> <p id="error_1_id_Type_of_complaint" class="invalid-feedback"><strong>This field is required.</strong></p> </div> </div> 
+                                    
+                                    <div id="div_id_Description" class="form-group"> <label for="id_Description" class=" requiredField">
+                                      Description<span class="asteriskField">*</span> </label> <div class=""> <textarea name="Description" cols="40" rows="10" maxlength="4000" class="textarea form-control is-invalid" required="" id="id_Description" style="height: 239px;"></textarea><button id="click_to_record">Voice To Text</button> <p id="error_1_id_Description" class="invalid-feedback"><strong>This field is required.</strong></p> </div> </div>
+                                      
+
+
+
+
+
+
+
+                                      <script>
+                                      click_to_record.addEventListener('click',function(){
+                                        var speech = true;
+                                        window.SpeechRecognition = window.webkitSpeechRecognition;
+                                    
+                                        const recognition = new SpeechRecognition();
+                                        recognition.interimResults = true;
+                                    
+                                        recognition.addEventListener('result', e => {
+                                            const transcript = Array.from(e.results)
+                                                .map(result => result[0])
+                                                .map(result => result.transcript)
+                                                .join('')
+                                    
+                                            document.getElementById("id_Description").innerHTML = transcript;
+                                            console.log(transcript);
+                                        });
+                                        
+                                        if (speech == true) {
+                                            recognition.start();
+                                        }
+                                    })
+                                  </script>
+                                      
+                            
+						<!--{% if messages %}
+<ul>
+	{% for message in messages %}
+	   <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+	   <a class="close" data-dismiss="alert" href="#">&times;</a>
+      {{ message }}
+    </div>
+	{% endfor %}
+</ul>
+{% endif %}
+             <form method="post">
+    {% csrf_token %}
+    
+		
+    
+        {{ complaint_form|crispy }}-->
+      
+     
+    <button type="submit" class="btn btn-primary m-1">Submit</button>
+		
+
+  </form>
+
+               
+			
+				
+				
+            
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+		
+{% endblock content %}
+
+
+
+		
+	    
+                
+				
+				
+           
+		            
+		
+
