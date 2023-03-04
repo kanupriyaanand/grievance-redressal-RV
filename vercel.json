@@ -2,4 +2,7 @@
     "rewrites": [{ "source": "/(.*)", "destination": "/web/GRsystem/templates/GRsystem/index.html" }]
     
     "buildCommand": "next build"
+    
+  "cleanUrls": true
+
 }
